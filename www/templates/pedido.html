@@ -1,0 +1,34 @@
+<ion-view>
+    <ion-nav-title>Dados de Entrega</ion-nav-title>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                <b>{{pedido.nome}}</b> - R{{pedido.preco | currency}}
+
+            </div>
+            <div class="item item-text-wrap">
+
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nome Completo</span>
+                        <input type="text">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Endereço</span>
+                        <input type="text">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input type="email">
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        
+        <a class="button button-full button-balanced" ng-click="finalizarPedido()">Finalizar</a>
+        
+    </ion-content>
+</ion-view>
