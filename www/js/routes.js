@@ -1,7 +1,7 @@
 angular.module('starter')
 
         .config(function ($stateProvider, $urlRouterProvider){
-            $urlRouterProvider.otherwise('listagem');
+            $urlRouterProvider.otherwise('login');
             
             $stateProvider
             
@@ -21,6 +21,12 @@ angular.module('starter')
                 url : '/pedido/:carro',
                 templateUrl: 'templates/pedido.html',
                 controller: 'PedidoController'
+            })
+            
+            .state('login',{
+                url : '/login',
+                templateUrl: 'templates/login.html',
+                controller: 'LoginController'
             })
         });
 
