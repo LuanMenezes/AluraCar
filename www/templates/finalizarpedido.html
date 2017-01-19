@@ -2,26 +2,27 @@
     <ion-nav-title>Dados de Entrega</ion-nav-title>
     <ion-content>
         <div class="card">
+            
             <div class="item item-divider">
-                <b>{{pedido.nome}}</b> - R{{pedido.preco | currency}}
-
+                <b>{{carroFinalizado.nome}}</b> - R{{carroFinalizado.preco | currency}}
             </div>
+            
             <div class="item item-text-wrap">
 
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Nome Completo</span>
+                        <input type="text" ng-model="pedido.nome">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label" ng-model="pedido.endereco">Endereço</span>
                         <input type="text">
                     </label>
 
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Endereço</span>
-                        <input type="text">
-                    </label>
-
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">Email</span>
-                        <input type="email">
+                        <span class="input-label">E-mail</span>
+                        <input type="email" ng-model="pedido.email">
                     </label>
                 </div>
 

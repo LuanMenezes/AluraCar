@@ -1,11 +1,10 @@
 <ion-view>
-    <ion-nav-title>Carro Selecionado</ion-nav-title>
+    <ion-nav-title>Carro Escolhido</ion-nav-title>
 
     <ion-content>
-
         <div class="card">
             <div class="item item-divider">
-                <b>Nome:</b> {{carro.nome}}
+                <b>Nome:</b> {{carroEscolhido.nome}}
             </div>
             <div class="item item-text-wrap">
                 <ul class="list">
@@ -21,10 +20,10 @@
                 </ul>
             </div>
             <div class="item item-divider">
-                <b>Total:</b> R{{carro.preco | currency}}
+                <b>Total:</b> R{{carroEscolhido.preco | currency}}
             </div>
         </div>
-        <a class="button button-full button-balanced" href="#/pedido/{{carro}}">Finalizar Pedido</a>
+        <a class="button button-full button-balanced" href="#/finalizarpedido/{{carroEscolhido}}">Finalizar Pedido</a>
     </ion-content>
 
 </ion-view>
