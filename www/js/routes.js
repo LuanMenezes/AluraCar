@@ -1,33 +1,37 @@
 angular.module('starter')
 
         .config(function ($stateProvider, $urlRouterProvider){
-            $urlRouterProvider.otherwise('listagem');
-//            $urlRouterProvider.otherwise('login');
+            $urlRouterProvider.otherwise('login');
+//            $urlRouterProvider.otherwise('listagem');
             
             $stateProvider
             
-//            .state('app',{
-//                url : '/app',
-//                templates : 'templates/menu.html',
-//                abstract : true,
-//                controller : 'MenuController'
-//            })
-            
-            .state('listagem',{
-                url : '/listagem',
-                templateUrl: 'templates/listagem.html',
-                controller: 'ListagemController'
+            .state('app',{
+                url : '/app',
+                templateUrl : 'templates/menu.html',
+                abstract : true,
+                controller : 'MenuController'
             })
             
-//            .state('app.listagem',{
-//                url : '/listagem',
-//                views : {
-//                    'menuContent' : {
-//                        templateUrl: 'templates/listagem.html',
-//                        controller: 'ListagemController'                        
-//                    }
-//                },
-//            })
+            .state('app.perfil',{
+                url : '/perfil',
+                views : {
+                    'menuContent' : {
+                        templateUrl: 'templates/perfil.html',
+                        controller: 'PerfilController'
+                    }
+                }
+            })
+
+            .state('app.listagem',{
+                url : '/listagem',
+                views : {
+                    'menuContent' : {
+                        templateUrl: 'templates/listagem.html',
+                        controller: 'ListagemController'
+                    }
+                },
+            })
             
             .state('carroescolhido',{
                 url : '/carroescolhido/:carro',

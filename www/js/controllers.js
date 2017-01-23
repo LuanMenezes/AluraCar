@@ -47,7 +47,7 @@ angular.module('starter')
                         title: "Parabens",
                         template: "Compra Finalizada com sucesso"
                     }).then(function () {
-                        $state.go('listagem');
+                        $state.go('app.listagem');
                     });
                 }, function (erro) {
                     $ionicPopup.alert({
@@ -69,25 +69,26 @@ angular.module('starter')
                         email: $scope.login.email,
                         senha: $scope.login.senha
                     }
-                }
+                };
 
                 CarroService.realizarLogin(dadosLogin).then(function (dados) {
                     $rootScope.usuario = dados.usuario;
-                    
                     $state.go('app.listagem');
                 }, function (erro) {
                     $ionicPopup.alert({
                         title: "Dados Incorretos",
                         template: "Verifique os campos preenchidos"
-                    }).then(function () {
-                        $state.go('app.listagem');
-                    });// ESTA COM O STATE GO PQ A URL NAO ESTA ATIVA
-                })
-
-            }
+                    });
+                });
+            };
         });
         
 angular.module('starter')
-    .controller('MenuController', function ($rootScope, $scope){
-        $scope.usuarioLogado = $rootScope.usuario;
-    })
+        .controller('MenuController', function ($rootScope, $scope){
+            $scope.usuarioLogado = $rootScope.usuario;
+        });
+        
+angular.module('starter')
+        .controller('PerfilController', function ($rootScope, $scope){
+            $scope.usuarioLogado = $rootScope.usuario;
+        });
