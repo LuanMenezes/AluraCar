@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'idf.br-filters', 'ngCordova', 'ionic-datepicker'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, DatabaseValues) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,5 +20,12 @@ angular.module('starter', ['ionic', 'idf.br-filters', 'ngCordova', 'ionic-datepi
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    
+    DatabaseValues.setup();
+    DatabaseValues.bancoDados.transaction(function (transacao){
+        transacao.executeSql('CREATE TABLE IF NOT EXISTS agendamentos (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome VARCHAR(200),' +
+                ' endereco VARCHAR(200), email VARCHAR(200), dataAgendamento VARCHAR(40), modelo VARCHAR(100), preco VARCHAR(50), confirmado BOOLEAN );', []);
+    });
+    
   });
 })
