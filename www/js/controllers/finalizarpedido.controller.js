@@ -31,27 +31,39 @@ angular.module('starter')
                 }
             };
 
+            $ionicHistory.nextViewOptions({
+                disableBack : true
+            });
+            
             CarroService.salvarPedido(pedidoFinalizado).then(function (dados) {
                 $scope.salvarBancoDados('true');
-                
-                $ionicHistory.nextViewOptions({
-                    disableBack : true
-                });
                 
                 $ionicPopup.alert({
                     title: "Parabens",
                     template: "Compra Finalizada com sucesso"
                 }).then(function () {
                     $state.go('app.listagem');                    
+
                 });
+                
             }, function (erro) {
                 $scope.salvarBancoDados('false');
-                $ionicPopup.alert({
-                    title: "Oops",
-                    template: "Servidor com problemas, tente mais tarde."
-                }).then(function () {
-                    $state.go('app.listagem');                    
-                });
+                
+                if ( ($scope.pedido.nome != undefined) && ($scope.pedido.endereco != undefined) && ($scope.pedido.email != undefined) ){
+                    $ionicPopup.alert({
+                        title: "Oops",
+                        template: "Servidor com problemas, tente mais tarde."
+                    }).then(function () {
+                        $state.go('app.listagem');                    
+                    });
+                } else {
+                    $ionicPopup.alert({
+                        title: "Dados Incorretos",
+                        template: "Por favor preencha o formulario corretamente."
+                    });
+                    
+                }
+                
             });
             
             $scope.salvarBancoDados = function(confirmado){
